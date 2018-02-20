@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import $ from 'jquery';
 
 import PurpleOptions from './components/purple_options';
@@ -23,44 +22,14 @@ import PurpleOptions from './components/purple_options';
 // });
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      congressNumber: 115,
-      chamber: '',
-      senateMembers: [],
-      houseMembers: []
-    };
-  }
-
-  async getData() {
-    // console.log(this.state);
-    const response = await axios.get(
-      // `https://api.propublica.org/congress/v1/115/explanations.json`, congress voting explanations
-      `https://api.propublica.org/congress/v1/${this.state.congressNumber}/${
-        this.state.chamber
-      }/members.json`, //https://projects.propublica.org/api-docs/congress-api/members/
-      {
-        headers: { 'X-API-Key': 'ErXQPoib5ox5eDm1V0gJPguS25miL2ehc0boLHew' }
-      }
-    );
-    const data = response.data.results;
-    // console.log(data[0].members);
-    if (this.state.chamber === 'senate') {
-      this.setState({ senateMembers: data[0].members });
-      console.log(this.state.senateMembers);
-    } else if (this.state.chamber === 'house') {
-      this.setState({ houseMembers: data[0].members });
-      console.log(this.state.houseMembers);
-    }
-    console.log(this.state.chamber);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
       <div className="App">
-        <PurpleOptions onChamberSelection={getData} />
+        <PurpleOptions />
         <div className="left dem-blue" />
       </div>
     );
