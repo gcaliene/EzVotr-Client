@@ -30,11 +30,8 @@ class App extends Component {
       congressNumber: 115,
       chamber: '',
       senateMembers: [],
-      houseMembers: [],
-      selectedOption: ''
+      houseMembers: []
     };
-
-    this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
   async getData() {
@@ -60,18 +57,10 @@ class App extends Component {
     console.log(this.state.chamber);
   }
 
-  handleOptionChange(changeEvent) {
-    console.log(changeEvent.target.value);
-    // console.log(this);
-    this.setState({
-      selectedOption: changeEvent.target.value
-    });
-  }
-
   render() {
     return (
       <div className="App">
-        <PurpleOptions />
+        <PurpleOptions onChamberSelection={getData} />
         <div className="left dem-blue" />
       </div>
     );
