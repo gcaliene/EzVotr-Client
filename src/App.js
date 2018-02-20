@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import $ from 'jquery';
 
+// import PurpleOptions from './components/purple_options'
+
 // $('#js-get-info').on('click', () => {
 // 	$.ajax({
 // 		type: 'GET',
@@ -26,10 +28,13 @@ class App extends Component {
 
     this.state = {
       congressNumber: 115,
-      chamber: 'senate',
+      chamber: '',
       senateMembers: [],
-      houseMembers: []
+      houseMembers: [],
+      selectedOption: ''
     };
+
+    this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
   async getData() {
@@ -47,20 +52,49 @@ class App extends Component {
     // console.log(data[0].members);
     if (this.state.chamber === 'senate') {
       this.setState({ senateMembers: data[0].members });
+      console.log(this.state.senateMembers);
     } else if (this.state.chamber === 'house') {
       this.setState({ houseMembers: data[0].members });
+      console.log(this.state.houseMembers);
     }
-    console.log(this.state.houseMembers);
-    console.log(this.state.senateMembers);
+    console.log(this.state.chamber);
+  }
+
+  handleOptionChange(changeEvent) {
+    console.log(changeEvent.target.value);
+    // console.log(this);
+    this.setState({
+      selectedOption: changeEvent.target.value
+    });
   }
 
   render() {
     return (
       <div className="App">
+        <input
+          type="radio"
+          id="contactChoice1"
+          value="option1"
+          checked={this.state.selectedOption === 'option1'}
+          onChange={this.handleOptionChange}
+          onClick={event => this.setState({ chamber: 'senate' })}
+        />
+        <label>Senate</label>
+        <input
+          type="radio"
+          id="contactChoice2"
+          value="option2"
+          checked={this.state.selectedOption === 'option2'}
+          onChange={this.handleOptionChange}
+          onClick={event => this.setState({ chamber: 'house' })}
+        />
+        <label>House</label>
+        <br />
         <button id="js-get-info" onClick={() => this.getData()}>
           get-info
         </button>
         <textarea name="" id="js-show-info" cols="30" rows="10" />
+        <div className="left dem-blue" />
       </div>
     );
   }
