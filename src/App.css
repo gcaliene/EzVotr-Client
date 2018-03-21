@@ -4,11 +4,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.fixed [type='checkbox'] + label,
-.fixed [type='radio'] + label {
-  pointer-events: auto;
-}
-
 .left {
 }
 

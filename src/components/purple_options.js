@@ -39,8 +39,8 @@ class PurpleOptions extends Component {
   }
 
   onRadioSelection(changeEvent) {
-    console.log(changeEvent.target.value);
-    console.log('hello');
+    // console.log(changeEvent.target.value);
+    // console.log('hello');
 
     // console.log(this);
     this.setState({
@@ -52,28 +52,37 @@ class PurpleOptions extends Component {
   render() {
     return (
       <div>
-        <input
-          className="fixed"
-          type="radio"
-          id="contactChoice1"
-          value="senate"
-          checked={this.state.chamber === 'senate'}
-          onChange={this.onRadioSelection}
-        />
-        <label>Senate</label>
-        <input
-          className="fixed"
-          type="radio"
-          id="contactChoice2"
-          value="house"
-          checked={this.state.chamber === 'house'}
-          onChange={this.onRadioSelection}
-        />
-        <label>House</label>
-        <br />
-        <button id="js-get-info" onClick={() => this.getData()}>
-          get-info
-        </button>
+        <form action="#">
+          <p>
+            <input
+              name="congress"
+              className=""
+              type="radio"
+              id="contactChoice1"
+              value="senate"
+              checked={this.state.chamber === 'senate'}
+              onChange={e => this.onRadioSelection(e)}
+            />
+            <label htmlFor="contactChoice1">Senate</label>
+          </p>
+          <p>
+            <input
+              name="congress"
+              className=""
+              type="radio"
+              id="contactChoice2"
+              value="house"
+              checked={this.state.chamber === 'house'}
+              onChange={e => this.onRadioSelection(e)}
+            />
+            <label htmlFor="contactChoice2">House</label>
+          </p>
+          <br />
+          <button id="js-get-info" onClick={() => this.getData()}>
+            get-info
+          </button>
+        </form>
+
         <textarea name="" id="js-show-info" cols="30" rows="10" />
       </div>
     );
