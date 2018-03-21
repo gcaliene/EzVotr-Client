@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import DemHouse from './dem_house';
+import RepHouse from './rep_house';
+
 class PurpleOptions extends Component {
   constructor(props) {
     super(props);
@@ -71,16 +74,15 @@ class PurpleOptions extends Component {
           />
           <label htmlFor="contactChoice2">House</label>
         </p>
-        <br />
         <button
           id="js-get-info"
-          className="btn waves-effect waves-light"
+          className="btn waves-effect waves-light pulse"
           onClick={() => this.getData()}
         >
           get-info
         </button>
-
-        <textarea name="" id="js-show-info" cols="30" rows="10" />
+        <RepHouse />
+        <DemHouse />
       </div>
     );
   }
