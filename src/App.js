@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import RaisedButton from 'material-ui/RaisedButton'; // add
 
 import PurpleOptions from './components/purple_options';
+import './App.css';
 
+//https://www.propublica.org/nerds/congress-api-bill-subjects-personal-explanations-and-sunsetting-sunlight
 // $('#js-get-info').on('click', () => {
 // 	$.ajax({
 // 		type: 'GET',
@@ -22,18 +27,20 @@ import PurpleOptions from './components/purple_options';
 // });
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+	// constructor(props) {
+	//   super(props);
+	// }
 
-  render() {
-    return (
-      <div className="App">
-        <PurpleOptions />
-        <div className="left dem-blue" />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+				<PurpleOptions />
+				<RaisedButton label="Material UI" />
+
+				<div className="left dem-blue" />
+			</MuiThemeProvider>
+		);
+	}
 }
 
 export default App;
