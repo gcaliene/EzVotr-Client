@@ -46,37 +46,39 @@ class PurpleOptions extends Component {
 
   render() {
     return (
-      <div>
-        <form action="#">
-          <p>
-            <input
-              name="congress"
-              className=""
-              type="radio"
-              id="contactChoice1"
-              value="senate"
-              checked={this.state.chamber === 'senate'}
-              onChange={e => this.onRadioSelection(e)}
-            />
-            <label htmlFor="contactChoice1">Senate</label>
-          </p>
-          <p>
-            <input
-              name="congress"
-              className=""
-              type="radio"
-              id="contactChoice2"
-              value="house"
-              checked={this.state.chamber === 'house'}
-              onChange={e => this.onRadioSelection(e)}
-            />
-            <label htmlFor="contactChoice2">House</label>
-          </p>
-          <br />
-          <button id="js-get-info" onClick={() => this.getData()}>
-            get-info
-          </button>
-        </form>
+      <div className="center">
+        <p>
+          <input
+            name="congress"
+            className=""
+            type="radio"
+            id="contactChoice1"
+            value="senate"
+            checked={this.state.chamber === 'senate'}
+            onChange={e => this.onRadioSelection(e)}
+          />
+          <label htmlFor="contactChoice1">Senate</label>
+        </p>
+        <p>
+          <input
+            name="congress"
+            className=""
+            type="radio"
+            id="contactChoice2"
+            value="house"
+            checked={this.state.chamber === 'house'}
+            onChange={e => this.onRadioSelection(e)}
+          />
+          <label htmlFor="contactChoice2">House</label>
+        </p>
+        <br />
+        <button
+          id="js-get-info"
+          className="btn waves-effect waves-light"
+          onClick={() => this.getData()}
+        >
+          get-info
+        </button>
 
         <textarea name="" id="js-show-info" cols="30" rows="10" />
       </div>
