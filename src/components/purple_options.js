@@ -81,8 +81,8 @@ class PurpleOptions extends Component {
         >
           get-info
         </button>
-        <RepHouse />
-        <DemHouse />
+        <RepHouse senate={this.state.senateMembers} />
+        <DemHouse house={this.state.houseMembers} />
       </div>
     );
   }
