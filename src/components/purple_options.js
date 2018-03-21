@@ -53,6 +53,7 @@ class PurpleOptions extends Component {
     return (
       <div>
         <input
+          className="fixed"
           type="radio"
           id="contactChoice1"
           value="senate"
@@ -61,6 +62,7 @@ class PurpleOptions extends Component {
         />
         <label>Senate</label>
         <input
+          className="fixed"
           type="radio"
           id="contactChoice2"
           value="house"
