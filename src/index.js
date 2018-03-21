@@ -5,6 +5,9 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <App className="deep-purple darken-4" />,
+  document.getElementById('root')
+);
 
 registerServiceWorker();
