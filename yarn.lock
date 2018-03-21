@@ -4363,6 +4363,10 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+normalize.css@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
+
 normalize@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/normalize/-/normalize-0.3.1.tgz#5df4a3fe16c02e61fb31ff2fb448a07f4a4084a6"
