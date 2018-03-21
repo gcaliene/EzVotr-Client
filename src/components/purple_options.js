@@ -40,6 +40,8 @@ class PurpleOptions extends Component {
 
   onRadioSelection(changeEvent) {
     console.log(changeEvent.target.value);
+    console.log('hello');
+
     // console.log(this);
     this.setState({
       chamber: changeEvent.target.value
