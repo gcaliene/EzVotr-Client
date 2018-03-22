@@ -13,23 +13,36 @@ class DemHouse extends Component {
   }
 
   renderMembers() {
+    console.log(this.state.houseMembers);
     return this.state.houseMembers.map((member, index) => {
-      return <li key={member.id}>{member.short_title} </li>;
+      console.log(member);
+      return (
+        <li key={member.id}>
+          {' '}
+          Name: {member.short_title} {member.first_name} {member.middle_name}{' '}
+          {member.last_name}{' '}
+        </li>
+      );
     });
   }
 
   componentWillReceiveProps() {
     const members = this.props;
-    this.setState({ houseMembers: members.house });
+    this.setState({ houseMembers: members.house }, () =>
+      console.log(this.state)
+    );
     console.log(this.props);
-    console.log(this.state);
   }
 
   // if(this.state.cham)
   render() {
     return (
       <div>
-        <ul>{this.renderMembers()}</ul>
+        <ul>
+          {this.props.chamber === 'house'
+            ? this.renderMembers()
+            : 'Nothing to see here'}
+        </ul>
       </div>
     );
   }

@@ -10,20 +10,19 @@ class PurpleOptions extends Component {
 
     this.state = {
       congressNumber: 115,
-      chamber: 'senate',
+      chamber: '',
       senateMembers: [],
       houseMembers: []
     };
-    this.getData = this.getData.bind(this);
     this.onRadioSelection = this.onRadioSelection.bind(this);
   }
 
   async componentDidMount() {
     const senateResponse = await axios.get(
       // `https://api.propublica.org/congress/v1/115/explanations.json`, congress voting explanations
-      `https://api.propublica.org/congress/v1/${this.state.congressNumber}/${
-        this.state.chamber
-      }/members.json`, //https://projects.propublica.org/api-docs/congress-api/members/
+      `https://api.propublica.org/congress/v1/${
+        this.state.congressNumber
+      }/senate/members.json`, //https://projects.propublica.org/api-docs/congress-api/members/
       {
         headers: { 'X-API-Key': 'ErXQPoib5ox5eDm1V0gJPguS25miL2ehc0boLHew' }
       }
@@ -43,10 +42,6 @@ class PurpleOptions extends Component {
     const houseData = houseResponse.data.results;
     this.setState({ houseMembers: houseData[0].members });
     // console.log(this.state.houseMembers);
-  }
-
-  async getData() {
-    console.log(this.state.chamber);
   }
 
   onRadioSelection(changeEvent) {
@@ -85,13 +80,7 @@ class PurpleOptions extends Component {
           />
           <label htmlFor="contactChoice2">House</label>
         </p>
-        <button
-          id="js-get-info"
-          className="btn waves-effect waves-light pulse"
-          onClick={() => this.getData()}
-        >
-          get-info
-        </button>
+
         <RepHouse
           chamber={this.state.chamber}
           senate={this.state.houseMembers}
