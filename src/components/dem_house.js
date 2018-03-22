@@ -17,10 +17,28 @@ class DemHouse extends Component {
     return this.state.houseMembers.map((member, index) => {
       console.log(member);
       return (
-        <li key={member.id}>
-          {' '}
-          Name: {member.short_title} {member.first_name} {member.middle_name}{' '}
-          {member.last_name}{' '}
+        <li key={member.id} className=" ">
+          <div className="row ">
+            <div className="col s12 m6 ">
+              <div className="card blue-grey darken-1 ">
+                <div className="card-content white-text ">
+                  <span className="card-title">
+                    {member.short_title} {member.first_name}{' '}
+                    {member.middle_name} {member.last_name}
+                  </span>
+                  <p>
+                    I am a very simple card. I am good at containing small bits
+                    of information. I am convenient because I require little
+                    markup to use effectively.
+                  </p>
+                </div>
+                <div className="card-action">
+                  <a href="#">This is a link</a>
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+          </div>{' '}
         </li>
       );
     });
