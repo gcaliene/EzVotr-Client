@@ -36,7 +36,7 @@ class PurpleOptions extends Component {
       console.log(this.state.senateMembers);
     } else if (this.state.chamber === 'house') {
       this.setState({ houseMembers: data[0].members });
-      console.log(this.state.houseMembers);
+      console.log(this.state.houseMembers[0].party);
     }
     console.log(this.state.chamber);
   }
@@ -81,7 +81,7 @@ class PurpleOptions extends Component {
         >
           get-info
         </button>
-        <RepHouse senate={this.state.senateMembers} />
+        <RepHouse senate={this.state.houseMembers} />
         <DemHouse house={this.state.houseMembers} />
       </div>
     );
