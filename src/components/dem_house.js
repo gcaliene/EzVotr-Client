@@ -14,23 +14,18 @@ class DemHouse extends Component {
 
   renderMembers() {
     return this.state.houseMembers.map((member, index) => {
-      return <li key={member.id}>{member.short_title}</li>;
+      return <li key={member.id}>{member.short_title} </li>;
     });
   }
 
   componentWillReceiveProps() {
     const members = this.props;
     this.setState({ houseMembers: members.house });
-    // console.log(this.state);
-    // console.log(members);
-    // console.log(this.state);
-    return (
-      <div>
-        <ul>{this.renderMembers()}</ul>
-      </div>
-    );
+    console.log(this.props);
+    console.log(this.state);
   }
 
+  // if(this.state.cham)
   render() {
     return (
       <div>

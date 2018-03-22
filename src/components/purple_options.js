@@ -18,9 +18,8 @@ class PurpleOptions extends Component {
     this.onRadioSelection = this.onRadioSelection.bind(this);
   }
 
-  async getData() {
-    console.log(this.state);
-    const response = await axios.get(
+  async componentDidMount() {
+    const senateResponse = await axios.get(
       // `https://api.propublica.org/congress/v1/115/explanations.json`, congress voting explanations
       `https://api.propublica.org/congress/v1/${this.state.congressNumber}/${
         this.state.chamber
@@ -29,22 +28,34 @@ class PurpleOptions extends Component {
         headers: { 'X-API-Key': 'ErXQPoib5ox5eDm1V0gJPguS25miL2ehc0boLHew' }
       }
     );
-    const data = response.data.results;
-    // console.log(data[0].members);
-    if (this.state.chamber === 'senate') {
-      this.setState({ senateMembers: data[0].members });
-      console.log(this.state.senateMembers);
-    } else if (this.state.chamber === 'house') {
-      this.setState({ houseMembers: data[0].members });
-      console.log(this.state.houseMembers[0].party);
-    }
+    const senateData = senateResponse.data.results;
+    this.setState({ senateMembers: senateData[0].members });
+
+    const houseResponse = await axios.get(
+      // `https://api.propublica.org/congress/v1/115/explanations.json`, congress voting explanations
+      `https://api.propublica.org/congress/v1/${
+        this.state.congressNumber
+      }/house/members.json`, //https://projects.propublica.org/api-docs/congress-api/members/
+      {
+        headers: { 'X-API-Key': 'ErXQPoib5ox5eDm1V0gJPguS25miL2ehc0boLHew' }
+      }
+    );
+    const houseData = houseResponse.data.results;
+    this.setState({ houseMembers: houseData[0].members });
+    // console.log(this.state.houseMembers);
+  }
+
+  async getData() {
     console.log(this.state.chamber);
   }
 
   onRadioSelection(changeEvent) {
-    this.setState({
-      chamber: changeEvent.target.value
-    });
+    this.setState(
+      {
+        chamber: changeEvent.target.value
+      },
+      () => console.log(this.state.chamber)
+    );
   }
 
   render() {
