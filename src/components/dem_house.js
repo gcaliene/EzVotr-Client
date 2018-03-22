@@ -5,25 +5,36 @@ class DemHouse extends Component {
   // console.log(houseMembers);
   constructor(props) {
     super(props);
+    this.state = {
+      houseMembers: this.props.house,
+      chamber: this.props.chamber
+    };
     this.renderMembers = this.renderMembers.bind(this);
   }
 
   renderMembers() {
-    console.log(this.props);
-    // .map((member, index) => {
-    //   return <li key={member.id}>{member.short_title}</li>;
-    // });
+    return this.state.houseMembers.map((member, index) => {
+      return <li key={member.id}>{member.short_title}</li>;
+    });
   }
 
-  componentDidUpdate() {
+  componentWillReceiveProps() {
     const members = this.props;
-    console.log(members);
+    this.setState({ houseMembers: members.house });
+    // console.log(this.state);
+    // console.log(members);
+    // console.log(this.state);
+    return (
+      <div>
+        <ul>{this.renderMembers()}</ul>
+      </div>
+    );
   }
 
   render() {
     return (
       <div>
-        <ul>{this.props}</ul>
+        <ul>{this.renderMembers()}</ul>
       </div>
     );
   }
