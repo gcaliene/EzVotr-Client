@@ -1,24 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 .body {
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 main {
-  flex: 1 0 auto;
-}
-
-.left {
-}
-
-.right {
-}
-
-.rep-red {
-}
-
-.dem-blue {
+	flex: 1 0 auto;
 }
