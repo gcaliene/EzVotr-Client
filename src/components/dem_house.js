@@ -11,7 +11,6 @@ class DemHouse extends Component {
     };
     this.renderMembers = this.renderMembers.bind(this);
   }
-
   renderMembers() {
     console.log(this.state.houseMembers);
     return this.state.houseMembers.map((member, index) => {
@@ -43,15 +42,14 @@ class DemHouse extends Component {
       );
     });
   }
-
-  componentWillReceiveProps() {
+  //There is a deprecation error with componentWillRecieveProps, so this must be solved before moving on further. I found the issue. react-dom package needs to be upgraded to 16.3.2 version as well.
+  UNSAFE_componentWillReceiveProps() {
     const members = this.props;
     this.setState({ houseMembers: members.house }, () =>
       console.log(this.state)
     );
     console.log(this.props);
   }
-
   // if(this.state.cham)
   render() {
     return (
