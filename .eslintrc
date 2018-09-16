@@ -1,0 +1,8 @@
+{
+  "extends": "react-app",
+  "plugins": ["prettier", "jsx-a11y"],
+  "rules": {
+    "jsx-a11y/href-no-hash": [0],
+    "prettier/prettier": "error"
+  }
+}
